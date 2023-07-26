@@ -1,0 +1,10 @@
+{
+  "Name": "PostBoxMod",
+  "Author": "IB",
+  "Version": "0.0.1",
+  "Description": "Adds a postbox as a constructable building to allow remote gifting to townsfolk.",
+  "UniqueID": "IB.PostBoxMod",
+  "EntryDll": "PostBoxMod.dll",
+  "MinimumApiVersion": "3.0.0",
+  "UpdateKeys": []
+}
