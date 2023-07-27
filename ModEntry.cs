@@ -18,6 +18,7 @@ namespace PostBoxMod
         **********/
 
         private Texture2D PostboxTexture;
+        private Building PostboxBuilding;
         private static IModHelper Helper;
 
         /*********
@@ -28,6 +29,7 @@ namespace PostBoxMod
         public override void Entry(IModHelper helper)
         {
             Helper = helper;
+            Helper.Events.GameLoop.GameLaunched += this.OnGameLaunched;
             Helper.Events.Content.AssetRequested += this.OnAssetRequested;
             Helper.Events.Display.MenuChanged += OnMenuChanged;
             Helper.Events.GameLoop.DayStarted += this.OnDayStarted;
@@ -52,6 +54,12 @@ namespace PostBoxMod
             }
         }
 
+        private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
+        {
+            object spaceCore = Helper.ModRegistry.GetApi("spacechase0.SpaceCore");
+            Helper.Reflection.GetMethod(spaceCore, "RegisterSerializerType").Invoke(typeof(Postbox));
+        }
+
         // add data to the blueprints xnb
         private void EditBluePrints(IAssetData asset)
         {
@@ -63,13 +71,27 @@ namespace PostBoxMod
         {
             Game1.playSound("shwip");
             Monitor.Log("Postboxing initiated", LogLevel.Debug);
-            foreach (Building building in Game1.getFarm().buildings)
+            Farm farm = Game1.getFarm();
+            for (int i = 0; i < farm.buildings.Count; ++i)  
             {
+                Building building = farm.buildings[i];
                 Monitor.Log("Detected " + building.ToString(), LogLevel.Debug);
+                if (building.buildingType.Value == "Postbox" && !(building is Postbox))
+                {
+                    farm.buildings[i] = new Postbox();
+                    farm.buildings[i].buildingType.Value = building.buildingType.Value;
+                    farm.buildings[i].daysOfConstructionLeft.Value = building.daysOfConstructionLeft.Value;
+                    farm.buildings[i].indoors.Value = building.indoors.Value;
+                    farm.buildings[i].tileX.Value = building.tileX.Value;
+                    farm.buildings[i].tileY.Value = building.tileY.Value;
+                    farm.buildings[i].tilesWide.Value = building.tilesWide.Value;
+                    farm.buildings[i].tilesHigh.Value = building.tilesHigh.Value;
+                    farm.buildings[i].load();
+                }
             }
         }
 
-        private static void OnMenuChanged(object sender, MenuChangedEventArgs e)
+        private void OnMenuChanged(object sender, MenuChangedEventArgs e)
         {
             if (e.NewMenu is StardewValley.Menus.CarpenterMenu Menu)
             {
