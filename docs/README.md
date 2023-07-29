@@ -31,7 +31,7 @@ Configurable Material cost:
 ## Compatibility
 Compatabile with Stardew Valley version 1.5.6+ (and likely versions 1.5+, but not tested), in both singleplayer and multiplayer!
 
-There are no known or expected incompatilities with other mods, unless they greatly modify how Robin's building interface/building logic in general works.
+There are no known or expected incompatabilities with other mods, unless they greatly modify how Robin's building interface/building logic in general works.
 
 ## Translation
 This mod was written with SMAPI's [i18n translation API](https://stardewvalleywiki.com/Modding:Modder_Guide/APIs/Translation). If you have the desire and ability to contribute a translation to this mod, feel free to reach out or make a pull request. 
