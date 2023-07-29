@@ -6,7 +6,7 @@
   "UniqueID": "i-saac-b.PostBoxMod",
   "EntryDll": "PostBoxMod.dll",
   "MinimumApiVersion": "3.0.0",
-  "UpdateKeys": [],
+  "UpdateKeys": [ "GitHub:i-saac-b/PostBoxMod" ],
   "Dependencies": [
     {
       "UniqueID": "spacechase0.SpaceCore"
