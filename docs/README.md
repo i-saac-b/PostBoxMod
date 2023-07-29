@@ -29,7 +29,7 @@ Configurable Material cost:
 - Custom: Loads from the CustomPostboxMaterialCost string. Formatted as one string, "itemId itemCount itemId itemCount [etc.]" (Check out https://stardewlist.com/ for easy item ID lookups!)
 
 ## Compatibility
-Compatabile with Stardew Valley version 1.5.6+ (and likely versions 1.5+, but not tested), in both singleplayer and multiplayer!
+Compatable with Stardew Valley version 1.5.6+ (and likely versions 1.5+, but not tested), in both singleplayer and multiplayer!
 
 There are no known or expected incompatabilities with other mods, unless they greatly modify how Robin's building interface/building logic in general works.
 
