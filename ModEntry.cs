@@ -18,8 +18,7 @@ namespace PostBoxMod
         **********/
 
         private Texture2D PostboxTexture;
-        private Building PostboxBuilding;
-        private static IModHelper Helper;
+        private ModConfig Config;
 
         /*********
         ** Public methods
@@ -28,7 +27,20 @@ namespace PostBoxMod
         /// <param name="helper">Provides simplified APIs for writing mods.</param>
         public override void Entry(IModHelper helper)
         {
-            Helper = helper;
+            // Read in config file and create if needed
+            try
+            {
+                this.Config = this.Helper.ReadConfig<ModConfig>();
+            }
+            catch (Exception)
+            {
+                this.Config = new ModConfig();
+                this.Monitor.Log(this.Helper.Translation.Get("entry.badConfig"), LogLevel.Warn);
+            }
+
+            Postbox.Initialize(this.Monitor, this.Config, Helper);
+            PostageMenu.Initialize(this.Monitor, Helper);
+
             Helper.Events.GameLoop.GameLaunched += this.OnGameLaunched;
             Helper.Events.Content.AssetRequested += this.OnAssetRequested;
             Helper.Events.Display.MenuChanged += OnMenuChanged;
@@ -63,19 +75,28 @@ namespace PostBoxMod
         // add data to the blueprints xnb
         private void EditBluePrints(IAssetData asset)
         {
-            asset.AsDictionary<string, string>().Data.Add("Postbox", "388 1/3/2/-1/-1/-2/-1/null/Postbox/For shipping gifts from your farm./Buildings/none/96/96/-1/null/Farm/10/false");
+            int cost = Config.PostboxCost;
+            string material = "335 3 330 5 390 50";
+            switch (Config.PostboxMaterialCost) {
+                case "Normal": break;
+                case "Free": material = ""; break;
+                case "Expensive": material = "335 10 336 5 337 1"; break;
+                case "Endgame": material = "337 10 910 5 787 10 74 1"; break;
+                case "Custom": material = Config.CustomPostboxMaterialCost; break;
+                default: break;
+            }
+            asset.AsDictionary<string, string>().Data.Add("Postbox", $"{material}/3/2/-1/-1/-2/-1/null/{Helper.Translation.Get("blueprint-title")}/{Helper.Translation.Get("blueprint-description")}/Buildings/none/96/96/-1/null/Farm/{cost}/false");
         }
 
         //debugging
         private void OnDayStarted(object sender, DayStartedEventArgs e)
         {
-            Game1.playSound("shwip");
-            Monitor.Log("Postboxing initiated", LogLevel.Debug);
+            Monitor.Log("Checking for unconverted Postbox...", LogLevel.Debug);
             Farm farm = Game1.getFarm();
             for (int i = 0; i < farm.buildings.Count; ++i)  
             {
                 Building building = farm.buildings[i];
-                Monitor.Log("Detected " + building.ToString(), LogLevel.Debug);
+                Monitor.Log("Detected " + building.ToString() + " with " + building.buildingType.Value, LogLevel.Debug);
                 if (building.buildingType.Value == "Postbox" && !(building is Postbox))
                 {
                     farm.buildings[i] = new Postbox();
@@ -87,6 +108,7 @@ namespace PostBoxMod
                     farm.buildings[i].tilesWide.Value = building.tilesWide.Value;
                     farm.buildings[i].tilesHigh.Value = building.tilesHigh.Value;
                     farm.buildings[i].load();
+                    Monitor.Log("Converted.", LogLevel.Debug);
                 }
             }
         }
