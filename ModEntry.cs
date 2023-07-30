@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
@@ -45,6 +46,7 @@ namespace PostBoxMod
             Helper.Events.Display.MenuChanged += this.OnMenuChanged;
             Helper.Events.GameLoop.DayStarted += this.OnDayStarted;
             Helper.Events.GameLoop.SaveLoaded += this.OnSaveLoaded;
+            Helper.Events.Multiplayer.ModMessageReceived += this.OnModMessageReceived;
 
             this.PostboxTexture = Helper.ModContent.Load<Texture2D>("assets/Postbox.png");
         }
@@ -65,6 +67,15 @@ namespace PostBoxMod
                 e.LoadFrom(() => this.PostboxTexture, AssetLoadPriority.Exclusive);
             }
         }
+
+        private void OnModMessageReceived(object sender, ModMessageReceivedEventArgs e)
+        {
+            if(e.FromModID == "i-saac-b.PostBoxMod"){
+                PostageMessage message = e.ReadAs<PostageMessage>();
+                Postbox.outgoing.Add(new Tuple<StardewValley.Object, string, Farmer>(new StardewValley.Object(Vector2.Zero, message.itemId, 0), message.receiver, Game1.getFarmer(message.senderId)));
+            }
+        }
+
 
         private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
         {
