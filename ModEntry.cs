@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
-using StardewModdingAPI.Utilities;
 using StardewValley;
 using StardewValley.Buildings;
 
@@ -43,8 +42,9 @@ namespace PostBoxMod
 
             Helper.Events.GameLoop.GameLaunched += this.OnGameLaunched;
             Helper.Events.Content.AssetRequested += this.OnAssetRequested;
-            Helper.Events.Display.MenuChanged += OnMenuChanged;
+            Helper.Events.Display.MenuChanged += this.OnMenuChanged;
             Helper.Events.GameLoop.DayStarted += this.OnDayStarted;
+            Helper.Events.GameLoop.SaveLoaded += this.OnSaveLoaded;
 
             this.PostboxTexture = Helper.ModContent.Load<Texture2D>("assets/Postbox.png");
         }
@@ -56,7 +56,7 @@ namespace PostBoxMod
         /// <param name="e">The event data.</param>
         private void OnAssetRequested(object sender, AssetRequestedEventArgs e)
         {
-            if (e.Name.IsEquivalentTo("Data/Blueprints"))
+            if (e.NameWithoutLocale.IsEquivalentTo("Data/Blueprints"))
             {
                 e.Edit(this.EditBluePrints);
             }
@@ -70,6 +70,11 @@ namespace PostBoxMod
         {
             object spaceCore = Helper.ModRegistry.GetApi("spacechase0.SpaceCore");
             Helper.Reflection.GetMethod(spaceCore, "RegisterSerializerType").Invoke(typeof(Postbox));
+        }
+
+        private void OnSaveLoaded(object sender, SaveLoadedEventArgs e)
+        {
+            this.Helper.GameContent.InvalidateCacheAndLocalized("Data/Blueprints");
         }
 
         // add data to the blueprints xnb
@@ -96,9 +101,9 @@ namespace PostBoxMod
             for (int i = 0; i < farm.buildings.Count; ++i)  
             {
                 Building building = farm.buildings[i];
-                Monitor.Log("Detected " + building.ToString() + " with " + building.buildingType.Value, LogLevel.Debug);
                 if (building.buildingType.Value == "Postbox" && !(building is Postbox))
                 {
+                    Monitor.Log("Detected " + building.ToString() + " with " + building.buildingType.Value, LogLevel.Debug);
                     farm.buildings[i] = new Postbox();
                     farm.buildings[i].buildingType.Value = building.buildingType.Value;
                     farm.buildings[i].daysOfConstructionLeft.Value = building.daysOfConstructionLeft.Value;

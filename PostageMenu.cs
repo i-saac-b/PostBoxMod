@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using System.Text;
+﻿using System.Collections.Generic;
 using StardewValley.Menus;
 using StardewValley;
 using StardewModdingAPI;
