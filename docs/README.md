@@ -13,7 +13,7 @@ This mod requires [SMAPI](https://smapi.io/) as well as [SpaceCore](https://www.
 Install [this mod from Nexus](https://www.nexusmods.com/stardewvalley/mods/17614)
 Run using SMAPI and enjoy!
 
-For any advice on how to start modding please refer to [the wiki](https://stardewvalleywiki.com/Modding:Player_Guide/Getting_Started).
+For any advice on how to start modding/using mods please refer to [the wiki](https://stardewvalleywiki.com/Modding:Player_Guide/Getting_Started).
 
 ## Configurability
 Configurable relationship point penalty for mailed gifts (Default: .75)
