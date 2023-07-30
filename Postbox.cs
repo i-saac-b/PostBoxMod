@@ -3,13 +3,8 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Netcode;
-using StardewValley.Objects;
 using StardewModdingAPI;
-using StardewModdingAPI.Events;
-using StardewModdingAPI.Utilities;
 using StardewValley.Buildings;
-using StardewValley.Menus;
 using StardewValley;
 
 namespace PostBoxMod
