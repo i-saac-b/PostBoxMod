@@ -43,8 +43,9 @@ namespace PostBoxMod
 
             Helper.Events.GameLoop.GameLaunched += this.OnGameLaunched;
             Helper.Events.Content.AssetRequested += this.OnAssetRequested;
-            Helper.Events.Display.MenuChanged += OnMenuChanged;
+            Helper.Events.Display.MenuChanged += this.OnMenuChanged;
             Helper.Events.GameLoop.DayStarted += this.OnDayStarted;
+            Helper.Events.GameLoop.SaveLoaded += this.OnSaveLoaded;
 
             this.PostboxTexture = Helper.ModContent.Load<Texture2D>("assets/Postbox.png");
         }
@@ -56,12 +57,14 @@ namespace PostBoxMod
         /// <param name="e">The event data.</param>
         private void OnAssetRequested(object sender, AssetRequestedEventArgs e)
         {
-            if (e.Name.IsEquivalentTo("Data/Blueprints"))
+            if (e.NameWithoutLocale.IsEquivalentTo("Data/Blueprints"))
             {
+                Monitor.Log("Editing Blueprints", LogLevel.Debug);
                 e.Edit(this.EditBluePrints);
             }
             else if (e.Name.IsEquivalentTo("Buildings/Postbox"))
             {
+                Monitor.Log("Loading Postbox", LogLevel.Debug);
                 e.LoadFrom(() => this.PostboxTexture, AssetLoadPriority.Exclusive);
             }
         }
@@ -70,6 +73,11 @@ namespace PostBoxMod
         {
             object spaceCore = Helper.ModRegistry.GetApi("spacechase0.SpaceCore");
             Helper.Reflection.GetMethod(spaceCore, "RegisterSerializerType").Invoke(typeof(Postbox));
+        }
+
+        private void OnSaveLoaded(object sender, SaveLoadedEventArgs e)
+        {
+            this.Helper.GameContent.InvalidateCacheAndLocalized("Data/Blueprints");
         }
 
         // add data to the blueprints xnb
@@ -117,8 +125,11 @@ namespace PostBoxMod
         {
             if (e.NewMenu is StardewValley.Menus.CarpenterMenu Menu)
             {
+                Monitor.Log("In Carpenter", LogLevel.Debug);
+                Monitor.Log("Check result " + Helper.Reflection.GetField<bool>(Menu, "magicalConstruction").GetValue(), LogLevel.Debug);
                 if (!Helper.Reflection.GetField<bool>(Menu, "magicalConstruction").GetValue())
                 {
+                    Monitor.Log("Adding Postbox", LogLevel.Debug);
                     var Blueprints = Helper.Reflection.GetField<List<BluePrint>>(Menu, "blueprints").GetValue();
                     Blueprints.Add(new BluePrint("Postbox"));
                 }

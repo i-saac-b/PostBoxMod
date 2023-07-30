@@ -70,6 +70,15 @@ namespace PostBoxMod
             bool worked = false;
             if ((int)base.daysOfConstructionLeft <= 0)
             {
+                List<String> friends = new List<string>();
+                foreach (string name in who.friendshipData.Keys)
+                {
+                    if (who.friendshipData[name].GiftsToday == 0 &&
+                        who.friendshipData[name].GiftsThisWeek < 2)
+                    {
+                        friends.Add(name);
+                    }
+                }
                 if (inUse){ // useless until menu & inUse are re-enabled
                     Game1.showRedMessage($"{Helper.Translation.Get("postbox-occupied")}");
                     worked = true;
@@ -78,7 +87,7 @@ namespace PostBoxMod
                 if (tileLocation.X == (float)((int)base.tileX + 1) && tileLocation.Y == (float)((int)base.tileY + 1))
                 {
                     // if player not holding something giftable 
-                    if(target != "" && who.ActiveObject != null && who.ActiveObject.canBeGivenAsGift() && who.ActiveObject.canBeTrashed())
+                    if (target != "" && who.ActiveObject != null && who.ActiveObject.canBeGivenAsGift() && who.ActiveObject.canBeTrashed())
                     {
                         // menu disabled for ease of use. may eventually update to use this again.
                         //ItemGrabMenu itemGrabMenu = new ItemGrabMenu(null, reverseGrab: true, showReceivingMenu: false, null, loadGift, null, null, true, true, false, true, false, 0, null, -1, this);
@@ -90,15 +99,6 @@ namespace PostBoxMod
                     }
                     else
                     {
-                        List<String> friends = new List<string>();
-                        foreach (string name in who.friendshipData.Keys)
-                        {
-                            if (who.friendshipData[name].GiftsToday == 0 &&
-                                who.friendshipData[name].GiftsThisWeek < 2)
-                            {
-                                friends.Add(name);
-                            }
-                        }
                         // hypothetically this could be the cause of some odd behavior in multiplayer
                         // but since local instances of this mod don't communicate,
                         // we should never see one PostageMenu overwrite another. I hope.
