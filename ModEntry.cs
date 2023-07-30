@@ -59,12 +59,10 @@ namespace PostBoxMod
         {
             if (e.NameWithoutLocale.IsEquivalentTo("Data/Blueprints"))
             {
-                Monitor.Log("Editing Blueprints", LogLevel.Debug);
                 e.Edit(this.EditBluePrints);
             }
             else if (e.Name.IsEquivalentTo("Buildings/Postbox"))
             {
-                Monitor.Log("Loading Postbox", LogLevel.Debug);
                 e.LoadFrom(() => this.PostboxTexture, AssetLoadPriority.Exclusive);
             }
         }
@@ -104,9 +102,9 @@ namespace PostBoxMod
             for (int i = 0; i < farm.buildings.Count; ++i)  
             {
                 Building building = farm.buildings[i];
-                Monitor.Log("Detected " + building.ToString() + " with " + building.buildingType.Value, LogLevel.Debug);
                 if (building.buildingType.Value == "Postbox" && !(building is Postbox))
                 {
+                    Monitor.Log("Detected " + building.ToString() + " with " + building.buildingType.Value, LogLevel.Debug);
                     farm.buildings[i] = new Postbox();
                     farm.buildings[i].buildingType.Value = building.buildingType.Value;
                     farm.buildings[i].daysOfConstructionLeft.Value = building.daysOfConstructionLeft.Value;
@@ -125,11 +123,8 @@ namespace PostBoxMod
         {
             if (e.NewMenu is StardewValley.Menus.CarpenterMenu Menu)
             {
-                Monitor.Log("In Carpenter", LogLevel.Debug);
-                Monitor.Log("Check result " + Helper.Reflection.GetField<bool>(Menu, "magicalConstruction").GetValue(), LogLevel.Debug);
                 if (!Helper.Reflection.GetField<bool>(Menu, "magicalConstruction").GetValue())
                 {
-                    Monitor.Log("Adding Postbox", LogLevel.Debug);
                     var Blueprints = Helper.Reflection.GetField<List<BluePrint>>(Menu, "blueprints").GetValue();
                     Blueprints.Add(new BluePrint("Postbox"));
                 }
