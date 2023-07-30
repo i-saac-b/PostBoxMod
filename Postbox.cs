@@ -26,10 +26,9 @@ namespace PostBoxMod
         
         // configurable relationship factor
         public static float factor = 1f;
-        
+
         // current mailing target
         public static string target = "";
-
         public static List<Tuple<StardewValley.Object, String, Farmer>> outgoing = new List<Tuple<StardewValley.Object, String, Farmer>>();
 
 
@@ -126,7 +125,15 @@ namespace PostBoxMod
                         who.friendshipData[target].GiftsThisWeek < 2)
                     {
                         Game1.showGlobalMessage($"{item.Name} {Helper.Translation.Get("postbox-sentGift")} {target}!");
-                        outgoing.Add(new Tuple<StardewValley.Object, string, Farmer>((StardewValley.Object)item, target, who));
+                        if (who.IsMainPlayer)
+                        {
+                            outgoing.Add(new Tuple<StardewValley.Object, string, Farmer>((StardewValley.Object)item, target, who));
+                        }
+                        else
+                        {
+                            PostageMessage message = new PostageMessage(item.ParentSheetIndex, target, who.uniqueMultiplayerID);
+                            Helper.Multiplayer.SendMessage(message, "PostageMessage", modIDs: new[] { "i-saac-b.PostBoxMod" }, playerIDs: new[] { Game1.serverHost.Value.UniqueMultiplayerID });
+                        }
                         // lastDelivery.Add(item); // for recovering last sent item. not implemented
                         who.friendshipData[target].GiftsToday++;
                         who.friendshipData[target].GiftsThisWeek++;
