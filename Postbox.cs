@@ -68,7 +68,8 @@ namespace PostBoxMod
                 foreach (string name in who.friendshipData.Keys)
                 {
                     if (who.friendshipData[name].GiftsToday == 0 &&
-                        who.friendshipData[name].GiftsThisWeek < 2)
+                        who.friendshipData[name].GiftsThisWeek < 2 &&
+                        Game1.getCharacterFromName(name) != null)
                     {
                         friends.Add(name);
                     }
