@@ -73,6 +73,8 @@ namespace PostBoxMod
                         who.friendshipData[name].GiftsThisWeek < 2 &&
                         Game1.getCharacterFromName(name) != null)
                     {
+                        if (name == "Henchman") continue;
+                        if (name == "Morris" && Game1.player.hasCompletedCommunityCenter()) continue;
                         friends.Add(name);
                     }
                 }
