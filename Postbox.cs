@@ -24,8 +24,9 @@ namespace PostBoxMod
         private static IMonitor Monitor;
         private static IModHelper Helper;
         
-        // configurable relationship factor
+        // configurable relationship factor, verbosity
         public static float factor = 1f;
+        public static bool verbose = false;
 
         // current mailing target
         public static string target = "";
@@ -36,6 +37,7 @@ namespace PostBoxMod
         {
             Monitor = monitor;
             factor = config.PostedGiftRelationshipModifier;
+            verbose = config.VerboseGifting;
             Helper = helper;
         }
 
@@ -156,6 +158,9 @@ namespace PostBoxMod
             foreach (Tuple<StardewValley.Object, string, Farmer> postage in outgoing)
             {
                 NPC receiver = Game1.getCharacterFromName(postage.Item2);
+                if (verbose) {
+                    Game1.chatBox.addInfoMessage($"{postage.Item1.Name} {Helper.Translation.Get("postbox-sentGift")} {postage.Item2} {Helper.Translation.Get("postbox-from")} {postage.Item3.displayName}!");
+                }
                 Monitor.Log("Sending " + postage.Item1.Name + " to " + postage.Item2 + " from " + postage.Item3.displayName, LogLevel.Debug);
                 receiver.receiveGift(postage.Item1, postage.Item3, false, 1 * factor, false);
             }

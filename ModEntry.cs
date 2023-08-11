@@ -81,6 +81,53 @@ namespace PostBoxMod
         {
             object spaceCore = Helper.ModRegistry.GetApi("spacechase0.SpaceCore");
             Helper.Reflection.GetMethod(spaceCore, "RegisterSerializerType").Invoke(typeof(Postbox));
+
+            var configMenu = this.Helper.ModRegistry.GetApi<IGenericModConfigMenuApi>("spacechase0.GenericModConfigMenu");
+            if (configMenu is null)
+                return;
+
+            // register mod
+            configMenu.Register(
+                mod: this.ModManifest,
+                reset: () => this.Config = new ModConfig(),
+                save: () => this.Helper.WriteConfig(this.Config)
+            );
+
+            configMenu.AddNumberOption(
+                mod: this.ModManifest,
+                name: () => "Posted Gift Relationship Modifier",
+                tooltip: () => "Input a percentage modifier for relationship points gained from mailed gifts. E.g., 100 = normal, 50 = half, 200 = double",
+                getValue: () => (int)(this.Config.PostedGiftRelationshipModifier * 100),
+                setValue: value => this.Config.PostedGiftRelationshipModifier = value / 100f
+            );
+            configMenu.AddNumberOption(
+                mod: this.ModManifest,
+                name: () => "Postbox Cost",
+                tooltip: () => "G cost for the Postbox",
+                getValue: () => this.Config.PostboxCost,
+                setValue: value => this.Config.PostboxCost = value
+            );
+            configMenu.AddTextOption(
+                 mod: this.ModManifest,
+                 name: () => "Postbox Material Cost",
+                 getValue: () => this.Config.PostboxMaterialCost,
+                 setValue: value => this.Config.PostboxMaterialCost = value,
+                 allowedValues: new string[] { "Normal", "Free", "Expensive", "Endgame", "Custom" }
+             );
+            configMenu.AddTextOption(
+                mod: this.ModManifest,
+                name: () => "Custom Material Cost",
+                tooltip: () => "Only used when Material Cost is set to Custom. Write a string of ItemIDs and quantities.",
+                getValue: () => this.Config.CustomPostboxMaterialCost,
+                setValue: value => this.Config.CustomPostboxMaterialCost = value
+            );
+            configMenu.AddBoolOption(
+                mod: this.ModManifest,
+                name: () => "Verbose Gifting",
+                tooltip: () => "Receive chat messages listing sent gifts overnight.",
+                getValue: () => this.Config.VerboseGifting,
+                setValue: value => this.Config.VerboseGifting = value
+            );
         }
 
         private void OnSaveLoaded(object sender, SaveLoadedEventArgs e)

@@ -10,5 +10,6 @@ namespace PostBoxMod
         public int PostboxCost { get; set; } = 2500;
         public string PostboxMaterialCost { get; set; } = "Normal"; // "Free", "Expensive", "Endgame", "Custom"
         public string CustomPostboxMaterialCost { get; set; } = "113 1";
+        public bool VerboseGifting { get; set; } = false;
     }
 }
