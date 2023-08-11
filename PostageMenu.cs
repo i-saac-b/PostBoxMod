@@ -5,6 +5,7 @@ using StardewModdingAPI;
 
 namespace PostBoxMod
 {
+    // SocialMenu may end up being a better option for this -- might do a lot of the logic for me.
     class PostageMenu : ChooseFromListMenu
     {
         private static IModHelper Helper;
