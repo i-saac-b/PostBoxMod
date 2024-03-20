@@ -1,0 +1,9 @@
+C:\Users\Isaac B\Desktop\PostBoxMod\obj\Debug\net6.0\PostBoxMod.csproj.AssemblyReference.cache
+C:\Users\Isaac B\Desktop\PostBoxMod\obj\Debug\net6.0\PostBoxMod.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Isaac B\Desktop\PostBoxMod\obj\Debug\net6.0\PostBoxMod.AssemblyInfoInputs.cache
+C:\Users\Isaac B\Desktop\PostBoxMod\obj\Debug\net6.0\PostBoxMod.AssemblyInfo.cs
+C:\Users\Isaac B\Desktop\PostBoxMod\obj\Debug\net6.0\PostBoxMod.csproj.CoreCompileInputs.cache
+C:\Users\Isaac B\Desktop\PostBoxMod\obj\Debug\net6.0\PostBoxMod.sourcelink.json
+C:\Users\Isaac B\Desktop\PostBoxMod\bin\Debug\net6.0\PostBoxMod.deps.json
+C:\Users\Isaac B\Desktop\PostBoxMod\bin\Debug\net6.0\PostBoxMod.dll
+C:\Users\Isaac B\Desktop\PostBoxMod\obj\Debug\net6.0\PostBoxMod.dll

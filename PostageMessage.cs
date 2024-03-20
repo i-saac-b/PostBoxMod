@@ -9,10 +9,10 @@ namespace PostBoxMod
 {
     class PostageMessage
     {
-        public int itemId { set; get; }
+        public string itemId { set; get; }
         public string receiver { set; get; }
         public long senderId { set; get; }
-        public PostageMessage(int itemId, String receiver, long senderId)
+        public PostageMessage(string itemId, String receiver, long senderId)
         {
             this.itemId = itemId;
             this.receiver = receiver;
