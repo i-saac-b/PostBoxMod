@@ -148,7 +148,7 @@ namespace PostBoxMod
             }
 
             // Doesn't appear to be loading correctly from JSON, so hacky fix updating important info follows.
-            var model = this.Helper.Data.ReadJsonFile<StardewValley.GameData.Buildings.BuildingData>("Postbox.json");
+            var model = this.Helper.Data.ReadJsonFile<StardewValley.GameData.Buildings.BuildingData>("Postbox.json") ?? new StardewValley.GameData.Buildings.BuildingData();
 
             model.Name = this.Helper.Translation.Get("blueprint-title");
             model.Description = this.Helper.Translation.Get("blueprint-description");
