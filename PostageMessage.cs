@@ -7,6 +7,7 @@ using StardewValley;
 
 namespace PostBoxMod
 {
+    // Deprecated for 1.6 (Postbox 1.0.2), multiplayer processing is now handled locally.
     class PostageMessage
     {
         public string itemId { set; get; }

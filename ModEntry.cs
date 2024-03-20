@@ -32,7 +32,7 @@ namespace PostBoxMod
             // Read in config file and create if needed
             try
             {
-                this.Config = helper.ReadConfig<ModConfig>();
+                this.Config = this.Helper.ReadConfig<ModConfig>();
             }
             catch (Exception)
             {
@@ -45,7 +45,6 @@ namespace PostBoxMod
 
             Helper.Events.GameLoop.GameLaunched += this.OnGameLaunched;
             Helper.Events.Content.AssetRequested += this.OnAssetRequested;
-            //Helper.Events.Display.MenuChanged += this.OnMenuChanged;
             Helper.Events.GameLoop.DayStarted += this.OnDayStarted;
             Helper.Events.GameLoop.DayEnding += this.OnDayEnding;
             Helper.Events.GameLoop.SaveLoaded += this.OnSaveLoaded;
