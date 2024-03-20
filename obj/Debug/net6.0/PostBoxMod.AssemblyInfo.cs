@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PostBoxMod")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0d96fd71a00c345b5591ec1c837976cf7db06169")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+caf3e63017981e9608a7e602fa795b9f0bfec751")]
 [assembly: System.Reflection.AssemblyProductAttribute("PostBoxMod")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PostBoxMod")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

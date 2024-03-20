@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\Isaac B\\Desktop\\PostBoxMod\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D24DA2D1-51AB-48ED-A346-440246004EEB}|PostBoxMod.csproj|c:\\users\\isaac b\\desktop\\postboxmod\\postbox.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D24DA2D1-51AB-48ED-A346-440246004EEB}|PostBoxMod.csproj|solutionrelative:postbox.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D24DA2D1-51AB-48ED-A346-440246004EEB}|PostBoxMod.csproj|c:\\users\\isaac b\\desktop\\postboxmod\\modentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D24DA2D1-51AB-48ED-A346-440246004EEB}|PostBoxMod.csproj|solutionrelative:modentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D24DA2D1-51AB-48ED-A346-440246004EEB}|PostBoxMod.csproj|c:\\users\\isaac b\\desktop\\postboxmod\\postagemessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D24DA2D1-51AB-48ED-A346-440246004EEB}|PostBoxMod.csproj|solutionrelative:postagemessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,20 +19,12 @@
       "RelativeMoniker": "D:0:0:{D24DA2D1-51AB-48ED-A346-440246004EEB}|PostBoxMod.csproj|solutionrelative:manifest.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D24DA2D1-51AB-48ED-A346-440246004EEB}|PostBoxMod.csproj|c:\\users\\isaac b\\desktop\\postboxmod\\modentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D24DA2D1-51AB-48ED-A346-440246004EEB}|PostBoxMod.csproj|solutionrelative:modentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D24DA2D1-51AB-48ED-A346-440246004EEB}|PostBoxMod.csproj|c:\\users\\isaac b\\desktop\\postboxmod\\postbox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D24DA2D1-51AB-48ED-A346-440246004EEB}|PostBoxMod.csproj|solutionrelative:postbox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D24DA2D1-51AB-48ED-A346-440246004EEB}|PostBoxMod.csproj|c:\\users\\isaac b\\desktop\\postboxmod\\modconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D24DA2D1-51AB-48ED-A346-440246004EEB}|PostBoxMod.csproj|solutionrelative:modconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D24DA2D1-51AB-48ED-A346-440246004EEB}|PostBoxMod.csproj|c:\\users\\isaac b\\desktop\\postboxmod\\postbox.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{D24DA2D1-51AB-48ED-A346-440246004EEB}|PostBoxMod.csproj|solutionrelative:postbox.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D24DA2D1-51AB-48ED-A346-440246004EEB}|PostBoxMod.csproj|c:\\users\\isaac b\\desktop\\postboxmod\\config.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -38,24 +38,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "PostageMessage.cs",
               "DocumentMoniker": "C:\\Users\\Isaac B\\Desktop\\PostBoxMod\\PostageMessage.cs",
               "RelativeDocumentMoniker": "PostageMessage.cs",
               "ToolTip": "C:\\Users\\Isaac B\\Desktop\\PostBoxMod\\PostageMessage.cs",
               "RelativeToolTip": "PostageMessage.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAUAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-20T18:24:13.911Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "manifest.json",
               "DocumentMoniker": "C:\\Users\\Isaac B\\Desktop\\PostBoxMod\\manifest.json",
               "RelativeDocumentMoniker": "manifest.json",
@@ -63,12 +63,11 @@
               "RelativeToolTip": "manifest.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-03-20T18:13:06.663Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-20T18:13:06.663Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Postbox.cs",
               "DocumentMoniker": "C:\\Users\\Isaac B\\Desktop\\PostBoxMod\\Postbox.cs",
               "RelativeDocumentMoniker": "Postbox.cs",
@@ -92,7 +91,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ModConfig.cs",
               "DocumentMoniker": "C:\\Users\\Isaac B\\Desktop\\PostBoxMod\\ModConfig.cs",
               "RelativeDocumentMoniker": "ModConfig.cs",
@@ -104,25 +103,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "Postbox.json",
               "DocumentMoniker": "C:\\Users\\Isaac B\\Desktop\\PostBoxMod\\Postbox.json",
               "RelativeDocumentMoniker": "Postbox.json",
               "ToolTip": "C:\\Users\\Isaac B\\Desktop\\PostBoxMod\\Postbox.json",
               "RelativeToolTip": "Postbox.json",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAAAUAAAAXAAAA",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAADYAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-03-19T21:22:22.757Z"
+              "WhenOpened": "2024-03-19T21:22:22.757Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "ModEntry.cs",
               "DocumentMoniker": "C:\\Users\\Isaac B\\Desktop\\PostBoxMod\\ModEntry.cs",
               "RelativeDocumentMoniker": "ModEntry.cs",
               "ToolTip": "C:\\Users\\Isaac B\\Desktop\\PostBoxMod\\ModEntry.cs",
               "RelativeToolTip": "ModEntry.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAArwB0AAAA1AAAA",
+              "ViewState": "AQIAAHUAAAAAAAAAAIAywI8AAABJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-19T21:00:16.647Z",
               "EditorCaption": ""
