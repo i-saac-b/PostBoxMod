@@ -1,0 +1,11 @@
+{
+    "entry.badConfig": "无法读取配置文件.",
+    "blueprint-title": "寄件箱",
+    "blueprint-description": "舒适又方便的从你的农场寄出你的礼物！ 几乎和亲自送礼一样有效。",
+    "postbox-tooManyGifts": "你收到了足够多的礼物！",
+    "postbox-sentGift": "邮寄礼物",
+    "postbox-from": "来自",
+    "postbox-occupied": "其他人正在发送包裹中。",
+    "postbox-noMoreRecipients": "你已经给能送的每个人都送了一份礼物！",
+    "postageMenu-shippingTo": "发送给......"
+  }
