@@ -2,6 +2,7 @@
 using StardewValley.Menus;
 using StardewValley;
 using StardewModdingAPI;
+using System;
 
 namespace PostBoxMod
 {
@@ -14,6 +15,8 @@ namespace PostBoxMod
 
         public static string currentSelection { get; set; }
 
+        public static Dictionary<String, String> localized_friends { get; set; }
+
         public static void Initialize(IMonitor monitor, IModHelper helper)
         {
             Monitor = monitor;
@@ -25,7 +28,7 @@ namespace PostBoxMod
         public static void prepGift(string name)
         {
             Game1.showGlobalMessage($"{Helper.Translation.Get("postageMenu-shippingTo")} {name}");
-            Postbox.target = name;
+            Postbox.target = localized_friends[name];
             Game1.activeClickableMenu.exitThisMenu();
         }
     }

@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using StardewModdingAPI;
 using StardewValley.Buildings;
 using StardewValley;
+using System.Linq;
 
 namespace PostBoxMod
 {
@@ -67,6 +68,7 @@ namespace PostBoxMod
             if (base.daysOfConstructionLeft.Value <= 0)
             {
                 List<String> friends = new List<string>();
+                Dictionary<String, String> localized_friends = new Dictionary<String, String>();
                 foreach (string name in who.friendshipData.Keys)
                 {
                     if (who.friendshipData[name].GiftsToday == 0 &&
@@ -74,6 +76,8 @@ namespace PostBoxMod
                         Game1.getCharacterFromName(name) != null)
                     {
                         friends.Add(name);
+                        localized_friends[Game1.getCharacterFromName(name).displayName] = name;
+                        PostageMenu.localized_friends = localized_friends;
                     }
                 }
                 if (inUse){ // useless until menu & inUse are re-enabled
@@ -101,7 +105,7 @@ namespace PostBoxMod
                         // we should never see one PostageMenu overwrite another. I hope.
                         if(friends.Count > 0)
                         {
-                            Game1.activeClickableMenu = new PostageMenu(friends, PostageMenu.prepGift);
+                            Game1.activeClickableMenu = new PostageMenu(localized_friends.Keys.ToList(), PostageMenu.prepGift); ;
                         }
                         else
                         {
@@ -127,7 +131,7 @@ namespace PostBoxMod
                     if (who.friendshipData[target].GiftsToday == 0 &&
                         who.friendshipData[target].GiftsThisWeek < 2)
                     {
-                        Game1.showGlobalMessage($"{item.Name} {Helper.Translation.Get("postbox-sentGift")} {target}!");
+                        Game1.showGlobalMessage($"{item.DisplayName} {Helper.Translation.Get("postbox-sentGift")} {receiver.displayName}!");
                         outgoing.Add(new Tuple<StardewValley.Object, string, Farmer>((StardewValley.Object)item, target, who));
                         // lastDelivery.Add(item); // for recovering last sent item. not implemented
                         who.friendshipData[target].GiftsToday++;
@@ -138,7 +142,7 @@ namespace PostBoxMod
                     }
                     else
                     {
-                        Game1.showGlobalMessage($"{target} {Helper.Translation.Get("postbox-tooManyGifts")}");
+                        Game1.showGlobalMessage($"{receiver.displayName} {Helper.Translation.Get("postbox-tooManyGifts")}");
                         target = "";
                     }
                 }                    
@@ -151,7 +155,7 @@ namespace PostBoxMod
             {
                 NPC receiver = Game1.getCharacterFromName(postage.Item2);
                 if (verbose) {
-                    Game1.chatBox.addInfoMessage($"{postage.Item1.Name} {Helper.Translation.Get("postbox-sentGift")} {postage.Item2} {Helper.Translation.Get("postbox-from")} {postage.Item3.displayName}!");
+                    Game1.chatBox.addInfoMessage($"{postage.Item1.DisplayName} {Helper.Translation.Get("postbox-sentGift")} {receiver.displayName} {Helper.Translation.Get("postbox-from")} {postage.Item3.displayName}!");
                 }
                 Monitor.Log("Sending " + postage.Item1.Name + " to " + receiver.Name + " from " + postage.Item3.UniqueMultiplayerID + ":" + postage.Item3.displayName, LogLevel.Debug);
                 receiver.receiveGift(postage.Item1, postage.Item3, false, 1 * factor, false);
