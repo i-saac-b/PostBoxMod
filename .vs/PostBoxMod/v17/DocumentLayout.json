@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Isaac B\\Desktop\\PostBoxMod\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D24DA2D1-51AB-48ED-A346-440246004EEB}|PostBoxMod.csproj|c:\\users\\isaac b\\desktop\\postboxmod\\manifest.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D24DA2D1-51AB-48ED-A346-440246004EEB}|PostBoxMod.csproj|solutionrelative:manifest.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D24DA2D1-51AB-48ED-A346-440246004EEB}|PostBoxMod.csproj|c:\\users\\isaac b\\desktop\\postboxmod\\postbox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D24DA2D1-51AB-48ED-A346-440246004EEB}|PostBoxMod.csproj|solutionrelative:postbox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -26,11 +30,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "manifest.json",
+              "DocumentMoniker": "C:\\Users\\Isaac B\\Desktop\\PostBoxMod\\manifest.json",
+              "RelativeDocumentMoniker": "manifest.json",
+              "ToolTip": "C:\\Users\\Isaac B\\Desktop\\PostBoxMod\\manifest.json",
+              "RelativeToolTip": "manifest.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-03T13:40:13.803Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "default.json",
               "DocumentMoniker": "C:\\Users\\Isaac B\\Desktop\\PostBoxMod\\i18n\\default.json",
               "RelativeDocumentMoniker": "i18n\\default.json",
@@ -38,12 +55,11 @@
               "RelativeToolTip": "i18n\\default.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-02T15:11:41.054Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-02T15:11:41.054Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "zh.json",
               "DocumentMoniker": "C:\\Users\\Isaac B\\Desktop\\PostBoxMod\\i18n\\zh.json",
               "RelativeDocumentMoniker": "i18n\\zh.json",
@@ -51,12 +67,11 @@
               "RelativeToolTip": "i18n\\zh.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-02T15:11:33.472Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-02T15:11:33.472Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "PostageMenu.cs",
               "DocumentMoniker": "C:\\Users\\Isaac B\\Desktop\\PostBoxMod\\PostageMenu.cs",
               "RelativeDocumentMoniker": "PostageMenu.cs",
@@ -64,18 +79,17 @@
               "RelativeToolTip": "PostageMenu.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-02T14:21:42.938Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-02T14:21:42.938Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Postbox.cs",
               "DocumentMoniker": "C:\\Users\\Isaac B\\Desktop\\PostBoxMod\\Postbox.cs",
               "RelativeDocumentMoniker": "Postbox.cs",
               "ToolTip": "C:\\Users\\Isaac B\\Desktop\\PostBoxMod\\Postbox.cs",
               "RelativeToolTip": "Postbox.cs",
-              "ViewState": "AQIAAEYAAAAAAAAAAAAQwFAAAAAVAAAA",
+              "ViewState": "AQIAAEYAAAAAAAAAAAAQwFIAAABCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-20T15:01:41.568Z",
               "EditorCaption": ""

@@ -1,7 +1,7 @@
 {
   "Name": "PostBoxMod",
   "Author": "i-saac-b",
-  "Version": "1.0.2",
+  "Version": "1.0.3",
   "Description": "Adds a postbox as a constructable building to allow remote gifting to townsfolk.",
   "UniqueID": "i-saac-b.PostBoxMod",
   "EntryDll": "PostBoxMod.dll",
